@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe 'user_sees_one_article' do
-  describe 'they link from the articles index' do
+describe "user sees one article" do
+  describe "they link from the articles index" do
     it "displays information for one article" do
       article = Article.create!(title: "New Title", body: "New Body")
 
@@ -11,7 +11,6 @@ describe 'user_sees_one_article' do
 
       expect(page).to have_content(article.title)
       expect(page).to have_content(article.body)
-
     end
   end
 end
