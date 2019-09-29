@@ -22,6 +22,9 @@ describe "user sees one article" do
   describe "they fill in a comment form" do
     it "displays the comment on the article show" do
       article = Article.create!(title: "New Title", body: "New Body")
+      comment_1 = article.comments.create(author_name: "Me", body: "Commenty comments")
+      comment_2 = article.comments.create(author_name: "You", body: "So much to say")
+
 
       visit article_path(article)
 
@@ -33,6 +36,7 @@ describe "user sees one article" do
       expect(page).to have_content("Post a Comment")
       expect(page).to have_content("ME!")
       expect(page).to have_content("So many thoughts on this article.")
+      expect(page).to have_content("Comments: 3")
     end
   end
 end
